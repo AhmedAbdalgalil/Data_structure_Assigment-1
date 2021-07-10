@@ -59,111 +59,111 @@ int main()
     }
 }
 //////////////////////////////////////////////////  student 3 part starts here     ////////////////////////////////////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ void creat_dynamic_array (int n)
+ {int operation_number,number_of_student_in_array=0;
+ // pointer that will be used in dynamic array part to point at the start of the dynamic array.
+struct student_information *ptr;
+ //save space for n elements in the ram dynamically
+ptr = (struct student_information*) calloc(n, sizeof(struct student_information));
+printf("array has been created successfully \n");
+operations_2:
+
+    while(1){
+    //chose the kind of the operation
+    printf("what kind of operations do you want to do? \n");
+    printf("press 1 to Insert a new student in the beginning    \n");
+    printf("press 2 to Insert a new student at the end    \n");
+    printf("press 3 to Insert a new student in the middle    \n");
+    printf("press 4 to print  all students data    \n");
+    scanf("%d", &operation_number);
+if (operation_number==1){
+
+    //Move element to make 1st space free
+    for (int i=number_of_student_in_array-1;i>=0;i--)
+    {
+        ptr[i+1]=ptr[i];
+    }
+//take the input data that will be stored in the free first space
+printf("Enter student name \n");
+  scanf ("%s", (ptr)->name);
+printf("Enter Student_ID \n");
+  scanf ("%d", &(ptr )->Student_ID);
+printf("Enter Student_date_day \n");
+  scanf ("%d", &(ptr )->Student_date_day);
+printf("Enter Student_date_month \n");
+  scanf ("%d", &(ptr )->Student_date_month);
+printf("Enter Student_date_year \n");
+  scanf ("%d", &(ptr )->Student_date_year);
+printf("Enter Student_score \n");
+  scanf ("%d", &(ptr )->Student_score);
+//the number of students in the array increased by 1
+number_of_student_in_array++ ;
+}
+else if (operation_number==2){
+//enter a element in the end is very simple operation if we know number_of_student_in_array
+printf("Enter student name \n");
+  scanf ("%s", (ptr+number_of_student_in_array)->name);
+printf("Enter Student_ID \n");
+  scanf ("%d", &(ptr+number_of_student_in_array )->Student_ID);
+printf("Enter Student_date_day \n");
+  scanf ("%d", &(ptr+number_of_student_in_array )->Student_date_day);
+printf("Enter Student_date_month \n");
+  scanf ("%d", &(ptr+number_of_student_in_array )->Student_date_month);
+printf("Enter Student_date_year \n");
+  scanf ("%d", &(ptr+number_of_student_in_array )->Student_date_year);
+printf("Enter Student_score \n");
+  scanf ("%d", &(ptr+number_of_student_in_array )->Student_score);
+
+//the number of students in the array increased by 1
+  number_of_student_in_array++;
+
+
+}
+else if (operation_number==3){
+
+         //Move element to make middle space free
+    for (int i=number_of_student_in_array-1;i>= number_of_student_in_array/2;i--)
+    {
+        ptr[i+1]=ptr[i];
+    }
+    //tack the data that will be stored
+printf("Enter student name \n");
+  scanf ("%s", (ptr+number_of_student_in_array/2)->name);
+printf("Enter Student_ID \n");
+  scanf ("%d", &(ptr+number_of_student_in_array/2 )->Student_ID);
+printf("Enter Student_date_day \n");
+  scanf ("%d", &(ptr+number_of_student_in_array/2 )->Student_date_day);
+printf("Enter Student_date_month \n");
+  scanf ("%d", &(ptr+number_of_student_in_array/2 )->Student_date_month);
+printf("Enter Student_date_year \n");
+  scanf ("%d", &(ptr+number_of_student_in_array/2 )->Student_date_year);
+printf("Enter Student_score \n");
+  scanf ("%d", &(ptr+number_of_student_in_array/2 )->Student_score);
+
+//the number of students in the array increased by 1
+   number_of_student_in_array++;
+}
+
+else if (operation_number==4){
+//print all elements in the array
+for (int i=0;i<number_of_student_in_array;i++)
+    {printf("student %d \n",i);
+printf ("student name is %s \n", (ptr+i)->name);
+printf ("Student_ID is %d\n", (ptr+i )->Student_ID);
+printf ("Student_date_day %d\n", (ptr )->Student_date_day);
+printf ("Student_date_month %d\n", (ptr+i )->Student_date_month);
+printf ("Student_date_year %d\n", (ptr+i )->Student_date_year);
+printf ("Student_score %d\n", (ptr+i )->Student_score);
+}
+}
+else {//if the user entered invalid input
+        printf("Invalid input !! !\n");
+
+        goto operations_2 ;
+}
+
+ }
+ }
 
 
 
