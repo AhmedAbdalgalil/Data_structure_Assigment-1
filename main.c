@@ -198,7 +198,181 @@ int main()
 
 
 //////////////////////////////////////////////////  student 2 part starts here     ////////////////////////////////////////////////////////
+void creat_linked_list (int n)
 
+ {
+     // A linked list node
+typedef struct node {
+    struct student_information val;
+    struct node * next;
+} node_t;
+
+node_t * head = NULL;//create a head pointer that will points to the first node
+node_t * Tail = NULL;//create a End pointer that will points to the last node
+//create the head node
+head = (node_t *) malloc(sizeof(node_t));
+head->next =NULL;
+Tail=head;
+int operation_number,number_of_student_in_LinkedList=1;
+    ////////////////////////////////////////////////
+
+
+//tack  the first node data
+    printf("Add the first student \n");
+        printf("Enter student name \n");
+    scanf ("%s", head->val.name);
+    printf("Enter Student_ID \n");
+    scanf ("%d", &(head)->val.Student_ID);
+    printf("Enter Student_date_day \n");
+    scanf ("%d", &(head)->val.Student_date_day);
+    printf("Enter Student_date_month \n");
+    scanf ("%d", &(head)->val.Student_date_month);
+    printf("Enter Student_date_year \n");
+    scanf ("%d", &(head)->val.Student_date_year);
+    printf("Enter Student_score \n");
+    scanf ("%d", &(head)->val.Student_score);
+
+
+
+operations_1:
+    while(1){
+//Set the operation that the user want to use .
+    printf("what kind of operations do you want to do? \n");
+    printf("press 1 to Insert a new student in the beginning    \n");
+    printf("press 2 to Insert a new student at the end    \n");
+    printf("press 3 to Insert a new student in the middle    \n");
+    printf("press 4 to print  all students data    \n");
+    scanf("%d", &operation_number);
+
+if (operation_number==1){
+
+    node_t * new_node=NULL;
+    //create a new node
+    new_node = (node_t *) malloc(sizeof(node_t));
+
+    //take the data for the new node
+    printf("Enter student name \n");
+    scanf ("%s", new_node->val.name);
+    printf("Enter Student_ID \n");
+    scanf ("%d", &(new_node)->val.Student_ID);
+    printf("Enter Student_date_day \n");
+    scanf ("%d", &(new_node)->val.Student_date_day);
+    printf("Enter Student_date_month \n");
+    scanf ("%d", &(new_node)->val.Student_date_month);
+    printf("Enter Student_date_year \n");
+    scanf ("%d", &(new_node)->val.Student_date_year);
+    printf("Enter Student_score \n");
+    scanf ("%d", &(new_node)->val.Student_score);
+    //increase the number of nodes
+    number_of_student_in_LinkedList++;
+    //the the new node the head node
+    new_node->next = head;
+
+    head = new_node;
+
+
+
+}
+
+else if (operation_number==2){
+
+        /* now we can add a new variable */
+        Tail->next = (node_t *) malloc(sizeof(node_t));
+
+printf("Enter student name \n");
+  scanf ("%s", Tail->next->val.name);
+printf("Enter Student_ID \n");
+  scanf ("%d", &(Tail->next)->val.Student_ID);
+printf("Enter Student_date_day \n");
+  scanf ("%d", &(Tail->next)->val.Student_date_day);
+printf("Enter Student_date_month \n");
+  scanf ("%d", &(Tail->next)->val.Student_date_month);
+printf("Enter Student_date_year \n");
+  scanf ("%d", &(Tail->next)->val.Student_date_year);
+printf("Enter Student_score \n");
+  scanf ("%d", &(Tail->next)->val.Student_score);
+  //increase the number of nodes
+number_of_student_in_LinkedList++;
+//make the new node followed by null
+Tail->next->next = NULL;
+Tail=Tail->next;
+}
+else if (operation_number==3){
+//make a new node
+  node_t * new_node=NULL;
+    new_node = (node_t *) malloc(sizeof(node_t));
+    printf("Enter student name \n");
+    scanf ("%s", new_node->val.name);
+    printf("Enter Student_ID \n");
+    scanf ("%d", &(new_node)->val.Student_ID);
+    printf("Enter Student_date_day \n");
+    scanf ("%d", &(new_node)->val.Student_date_day);
+    printf("Enter Student_date_month \n");
+    scanf ("%d", &(new_node)->val.Student_date_month);
+    printf("Enter Student_date_year \n");
+    scanf ("%d", &(new_node)->val.Student_date_year);
+    printf("Enter Student_score \n");
+    scanf ("%d", &(new_node)->val.Student_score);
+
+
+    ///////////////////////////////////
+
+
+    int i=1;
+    node_t * current = head;
+   //find the middle node
+    while (i<number_of_student_in_LinkedList/2) {
+        current = current->next;
+        i++;
+    }
+
+    //Note :Tail pointer can not be changed by insertion a element in the middle.
+    //the change  will only happen when we have one element on the linked list.
+    if(number_of_student_in_LinkedList==1){
+    Tail=current;
+}
+    //match the new node in the middle
+    new_node->next = current->next;
+    current->next = new_node;
+
+number_of_student_in_LinkedList++;
+
+}
+else if (operation_number==4){
+
+        //print all nodes data
+    node_t * current = head;
+
+    while (current != NULL) {
+
+        //
+        printf ("student name is %s \n", current->val.name);
+        printf ("Student_ID is %d\n", (current)->val.Student_ID);
+        printf ("Student_date_day %d\n", (current)->val.Student_date_day);
+        printf ("Student_date_month %d\n", (current)->val.Student_date_month);
+        printf ("Student_date_year %d\n", (current)->val.Student_date_year);
+        printf ("Student_score %d\n", (current)->val.Student_score);
+        //
+         current = current->next;
+
+    }
+
+
+
+
+}
+else{
+
+
+//mack sure the user give you a good input
+        printf("Invalid input !! !\n");
+
+        goto operations_1 ;
+
+}
+
+ }
+ }
 
 
 
